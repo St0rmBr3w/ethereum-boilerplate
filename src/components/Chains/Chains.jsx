@@ -14,10 +14,6 @@ const styles = {
     fontSize: "14px",
     padding: "0 10px",
   },
-  button: {
-    border: "2px solid rgb(231, 234, 243)",
-    borderRadius: "12px",
-  },
 };
 
 const menuItems = [
@@ -103,7 +99,7 @@ function Chains() {
   };
 
   const menu = (
-    <Menu onClick={handleMenuClick}>
+    <Menu className="rounded-xl" onClick={handleMenuClick}>
       {menuItems.map((item) => (
         <Menu.Item key={item.key} icon={item.icon} style={styles.item}>
           <span style={{ marginLeft: "5px" }}>{item.value}</span>
@@ -115,12 +111,12 @@ function Chains() {
   if (!chainId || !isAuthenticated) return null;
 
   return (
-    <div>
+    <div className="content absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
       <Dropdown overlay={menu} trigger={["click"]}>
         <Button
+          className="bg-slate p-3 rounded-xl w-40 h-12 mr-10 flex justify-center text-center text-white mx-5 text-base text-md font-semibold"
           key={selected?.key}
           icon={selected?.icon}
-          style={{ ...styles.button, ...styles.item }}
         >
           <span style={{ marginLeft: "5px" }}>{selected?.value}</span>
           <DownOutlined />

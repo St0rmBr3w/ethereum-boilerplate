@@ -11,6 +11,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     whiteSpace: "nowrap",
+    color: "text-gray-400",
   },
 };
 function TokenPrice(props) {

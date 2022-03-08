@@ -17,7 +17,8 @@ const styles = {
     alignItems: "center",
     width: "fit-content",
     borderRadius: "12px",
-    backgroundColor: "rgb(244, 244, 244)",
+    borderColor: "",
+    backgroundColor: "bg-gray-800",
     cursor: "pointer",
   },
   text: {
@@ -65,6 +66,7 @@ function Account() {
             fontWeight: "500",
           }}
           style={{ fontSize: "16px", fontWeight: "500" }}
+          className="bg-gray-800 p-1 rounded-full text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 mx-5"
           width="340px"
         >
           <div

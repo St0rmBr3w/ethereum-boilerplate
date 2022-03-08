@@ -6,55 +6,24 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Account from "components/Account/Account";
-import Chains from "components/Chains";
-import TokenPrice from "components/TokenPrice";
 import ERC20Balance from "components/ERC20Balance";
 import ERC20Transfers from "components/ERC20Transfers";
 import DEX from "components/DEX";
 import NFTBalance from "components/NFTBalance";
-import Wallet from "components/Wallet";
+//import Wallet from "components/Wallet";//
 import { Layout, Tabs } from "antd";
 import "antd/dist/antd.css";
-import NativeBalance from "components/NativeBalance";
 import "./style.css";
-import QuickStart from "components/QuickStart";
+import "./index.css";
 import Contract from "components/Contract/Contract";
 import Text from "antd/lib/typography/Text";
 import Ramper from "components/Ramper";
-import MenuItems from "./components/MenuItems";
-const { Header, Footer } = Layout;
+import Headers from "./components/Headers";
+import Nav from "./components/Nav";
+import Bounties from "./components/Bounties"
+//import Web3Auth from "./components/Web3Auth"
+const { Footer } = Layout;
 
-const styles = {
-  content: {
-    display: "flex",
-    justifyContent: "center",
-    fontFamily: "Roboto, sans-serif",
-    color: "#041836",
-    marginTop: "130px",
-    padding: "10px",
-  },
-  header: {
-    position: "fixed",
-    zIndex: 1,
-    width: "100%",
-    background: "#fff",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    fontFamily: "Roboto, sans-serif",
-    borderBottom: "2px solid rgba(0, 0, 0, 0.06)",
-    padding: "0 10px",
-    boxShadow: "0 1px 10px rgb(151 164 175 / 10%)",
-  },
-  headerRight: {
-    display: "flex",
-    gap: "20px",
-    alignItems: "center",
-    fontSize: "15px",
-    fontWeight: "600",
-  },
-};
 const App = ({ isServerInfo }) => {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
@@ -67,31 +36,17 @@ const App = ({ isServerInfo }) => {
   }, [isAuthenticated, isWeb3Enabled]);
 
   return (
-    <Layout style={{ height: "100vh", overflow: "auto" }}>
+    
+    <Layout className="bg-white top-0" style={{ height: "100vh", overflow: "visible" }}>
       <Router>
-        <Header style={styles.header}>
-          <Logo />
-          <MenuItems />
-          <div style={styles.headerRight}>
-            <Chains />
-            <TokenPrice
-              address="0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
-              chain="eth"
-              image="https://cloudflare-ipfs.com/ipfs/QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg/"
-              size="40px"
-            />
-            <NativeBalance />
-            <Account />
-          </div>
-        </Header>
-
-        <div style={styles.content}>
+        <Nav className="sticky top-0 z-50"/>
+        <div>
           <Switch>
-            <Route exact path="/quickstart">
-              <QuickStart isServerInfo={isServerInfo} />
+            <Route exact path="/get-started">
+              <Headers className="z-0" isServerInfo={isServerInfo} />
             </Route>
-            <Route path="/wallet">
-              <Wallet />
+            <Route path="/bounties">
+              <Bounties />
             </Route>
             <Route path="/1inch">
               <Tabs defaultActiveKey="1" style={{ alignItems: "center" }}>
@@ -122,10 +77,10 @@ const App = ({ isServerInfo }) => {
               <Contract />
             </Route>
             <Route path="/">
-              <Redirect to="/quickstart" />
+              <Redirect to="/headers" />
             </Route>
             <Route path="/ethereum-boilerplate">
-              <Redirect to="/quickstart" />
+              <Redirect to="/headers" />
             </Route>
             <Route path="/nonauthenticated">
               <>Please login using the "Authenticate" button</>
@@ -134,6 +89,7 @@ const App = ({ isServerInfo }) => {
         </div>
       </Router>
       <Footer style={{ textAlign: "center" }}>
+        {/*<Web3Auth />*/}
         <Text style={{ display: "block" }}>
           ⭐️ Please star this{" "}
           <a
