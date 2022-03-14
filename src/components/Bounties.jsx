@@ -1,3 +1,5 @@
+//import CreateBounty from "./CreateBounty";
+
 function Bounties() {
 return (
 //background//
@@ -102,9 +104,11 @@ return (
 
             {/*Create bounties button*/}
             <div className="bg-purple-600 hover:bg-purple-800 hover:text-gray-200 rounded-xl w-40 h-12 ml-auto mr-10 flex justify-center text-center text-white">
-                <button className="text-base text-md font-semibold">
-                    <span>• Create Bounty</span>
-                </button>
+                <a href="/createbounty" className="hover:text-gray-200 justify-center text-center flex">
+                    <button className="text-base justify-center text-md font-semibold">
+                        <span className="hover:text-gray-200 text-center">• Create Bounty</span>
+                    </button>
+                </a>
             </div>
 
         </div>

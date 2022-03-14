@@ -21,14 +21,19 @@ import Ramper from "components/Ramper";
 import Headers from "./components/Headers";
 import Nav from "./components/Nav";
 import Bounties from "./components/Bounties"
+import CreateBounty from "./components/CreateBounty";
+/*import OpenloginReactNativeSdk, {
+  LoginProvider,
+  OpenloginNetwork,
+} from "@web3auth/react-native-sdk";*/
 //import Web3Auth from "./components/Web3Auth"
 const { Footer } = Layout;
 
 const App = ({ isServerInfo }) => {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
-
-  useEffect(() => {
+  
+    useEffect(() => {
     const connectorId = window.localStorage.getItem("connectorId");
     if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading)
       enableWeb3({ provider: connectorId });
@@ -36,7 +41,6 @@ const App = ({ isServerInfo }) => {
   }, [isAuthenticated, isWeb3Enabled]);
 
   return (
-    
     <Layout className="bg-white top-0" style={{ height: "100vh", overflow: "visible" }}>
       <Router>
         <Nav className="sticky top-0 z-50"/>
@@ -47,6 +51,9 @@ const App = ({ isServerInfo }) => {
             </Route>
             <Route path="/bounties">
               <Bounties />
+            </Route>
+            <Route path="/createbounty">
+              <CreateBounty />
             </Route>
             <Route path="/1inch">
               <Tabs defaultActiveKey="1" style={{ alignItems: "center" }}>
@@ -89,8 +96,8 @@ const App = ({ isServerInfo }) => {
         </div>
       </Router>
       <Footer style={{ textAlign: "center" }}>
-        {/*<Web3Auth />*/}
         <Text style={{ display: "block" }}>
+        {/*<Web3Auth />*/}
           ⭐️ Please star this{" "}
           <a
             href="https://github.com/ethereum-boilerplate/ethereum-boilerplate/"
