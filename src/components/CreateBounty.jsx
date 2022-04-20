@@ -97,14 +97,14 @@ function CreateBounty() {
         </div>
 
         {/*Input 5 - Bounty Description*/}
-        <div className="mb-20 mt-10 text-left h-50">
+        <div className="mb-20 mt-10 text-left">
           <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
             Bounty Description
           </span>
           <br></br>
           <Input
             id="b-desc"
-            className="items-center justify-center rounded-xl w-1/2 p-10 mx-10"
+            className="items-center justify-center rounded-xl w-1/2 pt-10 pb-10 lh-100 mx-20 mt-4"
             placeholder=""
           />
         </div>
@@ -115,11 +115,55 @@ function CreateBounty() {
             What category does this bounty belong in? (maximum 3 categories)
           </span>
           <br></br>
-          <Input
-            id="b-tags"
-            className="items-center justify-center rounded-xl w-1/2 ml-20 mt-4"
-            placeholder=""
-          />
+          <form>
+            <span className="border-white rounded-xl">
+              <Input
+                type="checkbox"
+                id="dev-tag"
+                className="items-center justify-center rounded-xl w-10 ml-20 text-white"
+                value="dev"
+              />
+              <label htmlFor="dev-tag" className="text-white ml-4">
+                Development
+              </label>
+            </span>
+
+            <span className="border-white rounded-xl">
+              <Input
+                type="checkbox"
+                id="des-tag"
+                className="items-center justify-center rounded-xl w-10 ml-20 text-white"
+                value="design"
+              />
+              <label htmlFor="des-tag" className="text-white ml-4">
+                Design
+              </label>
+            </span>
+
+            <span className="border-white rounded-xl">
+              <Input
+                type="checkbox"
+                id="mark-tag"
+                className="items-center justify-center rounded-xl w-10 ml-20 text-white"
+                value="marketing"
+              />
+              <label htmlFor="mark-tag" className="text-white ml-4">
+                Marketing
+              </label>
+            </span>
+
+            <span className="">
+              <Input
+                type="checkbox"
+                id="other-tag"
+                className="items-center justify-center rounded-xl w-10 ml-20"
+                value="other"
+              />
+              <label htmlFor="other-tag" className="text-white ml-4">
+                Other
+              </label>
+            </span>
+          </form>
         </div>
 
         {/*Input 7 - Is there a reward?*/}
@@ -134,7 +178,7 @@ function CreateBounty() {
                 <span>Yes</span>
               </button>
             </div>
-            <div className="bg-white hover:bg-purple-800 hover:text-gray-200 rounded-xl w-20 h-10 flex justify-center text-center text-black">
+            <div className="bg-white hover:bg-purple-800 hover:text-gray-200 rounded-xl w-20 h-10 flex justify-center text-center text-black mb-10">
               <button className="text-base text-md font-semibold">
                 <span>No</span>
               </button>
@@ -142,9 +186,11 @@ function CreateBounty() {
           </div>
           <br></br>
           <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
-            What's the reward amount?
+            Is there a Deadline?
           </span>
           <br></br>
+          <script src="https://unpkg.com/flowbite@1.4.2/dist/datepicker.js"></script>
+          <div inline-datepicker data-date="02/25/2022"></div>
           <Input
             id="reward-amt"
             className="items-center justify-center rounded-xl w-1/4 ml-20 mt-4"
