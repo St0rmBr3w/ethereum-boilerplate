@@ -104,7 +104,7 @@ function CreateBounty() {
           <br></br>
           <Input
             id="b-desc"
-            className="items-center justify-center rounded-xl w-1/2 h-full ml-20 mt-4"
+            className="items-center justify-center rounded-xl w-1/2 p-10 mx-10"
             placeholder=""
           />
         </div>

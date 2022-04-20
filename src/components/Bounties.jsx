@@ -143,7 +143,19 @@ function Bounties() {
           channel="Shaqib Habib"
           image="https://i.ytimg.com/vi/J6rVaFzOEP8/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLC50RZg-h1YCrv-n8T8kNoUJH6BAg"
         /> */}
-        <BountyCard className="relative justify-center" />
+        
+        <br></br>
+        <div className="relative grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-20 gap-x-12 justify-center items-center m-10"> 
+        <BountyCard bounty="40" description="hi" />
+        <BountyCard className="" />
+        <BountyCard className="" />
+        <BountyCard className="" />
+        <BountyCard className="" />
+        <BountyCard className="" />
+</div>
+
+        
+
         <div
           id="outer"
           className="relative grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-20 gap-x-12 justify-center items-center m-10"
@@ -154,3 +166,4 @@ function Bounties() {
 }
 
 export default Bounties;
+
