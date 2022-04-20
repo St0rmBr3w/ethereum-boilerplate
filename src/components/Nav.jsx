@@ -1,53 +1,52 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import Account from "components/Account/Account";
 import Chains from "components/Chains";
 
 const navigation = [
-  { name: 'Get Started', href: '/get-started', current: false },
-  { name: 'Dashboard', href: '/dashboard', current: false },
-  { name: 'Bounties', href: '/bounties', current: true },
-
-]
+  { name: "Get Started", href: "/get-started", current: false },
+  { name: "Dashboard", href: "/dashboard", current: false },
+  { name: "Bounties", href: "/bounties", current: true },
+];
 
 const styles = {
-    content: {
-      display: "flex",
-      justifyContent: "center",
-      fontFamily: "Roboto, sans-serif",
-      color: "#041836",
-      marginTop: "130px",
-      padding: "10px",
-      zindex: "1000",
-    },
-    header: {
-      position: "sticky",
-      top: "0",
-      width: "100%",
-      zindex: "2000",
-      background: "bg-gray-800",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      fontFamily: "Roboto, sans-serif",
-      borderBottom: "2px solid rgba(0, 0, 0, 0.06)",
-      padding: "0 10px",
-      boxShadow: "0 1px 10px rgb(151 164 175 / 10%)",
-    },
-    headerRight: {
-      display: "flex",
-      gap: "20px",
-      alignItems: "center",
-      zindex: "2000",
-      fontSize: "15px",
-      fontWeight: "600",
-    },
-  };
+  content: {
+    display: "flex",
+    justifyContent: "center",
+    fontFamily: "Roboto, sans-serif",
+    color: "#041836",
+    marginTop: "130px",
+    padding: "10px",
+    zindex: "1000",
+  },
+  header: {
+    position: "sticky",
+    top: "0",
+    width: "100%",
+    zindex: "2000",
+    background: "bg-gray-800",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontFamily: "Roboto, sans-serif",
+    borderBottom: "2px solid rgba(0, 0, 0, 0.06)",
+    padding: "0 10px",
+    boxShadow: "0 1px 10px rgb(151 164 175 / 10%)",
+  },
+  headerRight: {
+    display: "flex",
+    gap: "20px",
+    alignItems: "center",
+    zindex: "2000",
+    fontSize: "15px",
+    fontWeight: "600",
+  },
+};
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Nav() {
@@ -72,12 +71,12 @@ export default function Nav() {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                    src="https://i.imgur.com/glTzlL9.png"
                     alt="Workflow"
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                    src="https://i.imgur.com/WJkhQAQ.png"
                     alt="Workflow"
                   />
                 </div>
@@ -88,10 +87,12 @@ export default function Nav() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-primary-turquoise text-black hover:bg-gray-200 hover:text-black' : 'text-white hover:bg-gray-700 hover:text-white',
-                          'p-3 rounded-xl w-28 h-12 justify-center text-center items-center text-base text-md font-semibold'
+                          item.current
+                            ? "bg-primary-turquoise text-black hover:bg-gray-200 hover:text-black"
+                            : "text-white hover:bg-gray-700 hover:text-white",
+                          "p-3 rounded-xl w-28 h-12 justify-center text-center items-center text-base text-md font-semibold",
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
                       </a>
@@ -99,8 +100,8 @@ export default function Nav() {
                   </div>
                 </div>
               </div>
-              <Chains/>
-              <Account/>
+              <Chains />
+              <Account />
               <div className="content absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
@@ -136,7 +137,10 @@ export default function Nav() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700",
+                            )}
                           >
                             Your Profile
                           </a>
@@ -146,7 +150,10 @@ export default function Nav() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700",
+                            )}
                           >
                             Settings
                           </a>
@@ -156,7 +163,10 @@ export default function Nav() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700",
+                            )}
                           >
                             Sign out
                           </a>
@@ -177,10 +187,12 @@ export default function Nav() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium",
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -190,5 +202,5 @@ export default function Nav() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
