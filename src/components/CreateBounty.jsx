@@ -24,6 +24,8 @@ function CreateBounty() {
     bountyInstance.set("Reward", rewardAmt);
     bountyInstance.save();
     document.getElementById("logger").innerHTML = "Task successfully created!";
+
+
   }
   return (
     //background//

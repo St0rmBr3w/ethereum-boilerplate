@@ -29,6 +29,43 @@ import CreateBounty from "./components/CreateBounty";
 //import Web3Auth from "./components/Web3Auth"
 const { Footer } = Layout;
 
+// const { ethers } = require("ethers");
+
+// import { INFURA_ID, NETWORK, NETWORKS } from "./constants";
+
+// // 😬 Sorry for all the console logging
+// const DEBUG = true;
+// const NETWORKCHECK = true;
+
+// // 🛰 providers
+// if (DEBUG) console.log("📡 Connecting to Testnet");
+
+// // const mainnetProvider = getDefaultProvider("mainnet", { infura: INFURA_ID, etherscan: ETHERSCAN_KEY, quorum: 1 });
+// // const mainnetProvider = new InfuraProvider("mainnet",INFURA_ID);
+// //
+// // attempt to connect to infura...
+// const targetNetwork = NETWORKS.localhost; // <------- select your target 
+
+
+// const poktMainnetProvider = navigator.onLine
+//   ? new ethers.providers.StaticJsonRpcProvider(
+//       "https://eth-mainnet.gateway.pokt.network/v1/lb/611156b4a585a20035148406",
+//     )
+//   : null;
+
+// // const mainnetInfura = navigator.onLine
+// //   ? new ethers.providers.StaticJsonRpcProvider("https://mainnet.infura.io/v3/" + INFURA_ID)
+// //   : null;
+
+// // 🏠 local host
+// const localProviderUrl = targetNetwork.rpcUrl;
+// // as you deploy to other networks you can set
+// // REACT_APP_PROVIDER=https://dai.poa.network in packages/react-app/.env
+
+// const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
+// if (DEBUG) console.log("🏠 Connecting to provider:", localProviderUrlFromEnv);
+// const localProvider = new ethers.providers.StaticJsonRpcProvider(localProviderUrlFromEnv);
+
 const App = ({ isServerInfo }) => {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
