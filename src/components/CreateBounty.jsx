@@ -3,8 +3,8 @@ import { useMoralis } from "react-moralis";
 
 function CreateBounty() {
   const { Moralis } = useMoralis();
-  const serverUrl = "https://10qsie3bmezz.usemoralis.com:2053/server";
-  const appId = "u4rYrjm7EDM2CifQKI0FYYVvrAA49AhYe1YNCoJm";
+  const serverUrl = "https://fqm6xvk1bz3n.usemoralis.com:2053/server";
+  const appId = "8jqUFih6aO47wx0MKH0I10CaHkFTKCIGtI5F0WSV";
   Moralis.start({ serverUrl, appId });
 
   async function submitBounty() {
@@ -12,7 +12,7 @@ function CreateBounty() {
     let orgWeb = document.getElementById("org-web").value;
     let bountyTitle = document.getElementById("b-title").value;
     let bountyDesc = document.getElementById("b-desc").value;
-    let bountyTags = document.getElementById("b-tags").value;
+    // let bountyTags = document.getElementById("b-tags").value;
     let rewardAmt = document.getElementById("reward-amt").value;
     const bountyData = Moralis.Object.extend("bountyData");
     const bountyInstance = new bountyData();
@@ -20,7 +20,7 @@ function CreateBounty() {
     bountyInstance.set("OrganizationWebsite", orgWeb);
     bountyInstance.set("BountyTitle", bountyTitle);
     bountyInstance.set("BountyDescription", bountyDesc);
-    bountyInstance.set("BountyTags", bountyTags);
+    //bountyInstance.set("BountyTags", bountyTags);
     bountyInstance.set("Reward", rewardAmt);
     bountyInstance.save();
     document.getElementById("logger").innerHTML = "Task successfully created!";
@@ -36,6 +36,7 @@ function CreateBounty() {
             CREATING BOUNTY
           </span>
         </div>
+        <text id="logger">log</text>
 
         {/*Input 2 - First Time Posting*/}
         <div className="mb-20 mt-10 text-left">
@@ -184,6 +185,18 @@ function CreateBounty() {
               </button>
             </div>
           </div>
+          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
+            Bounty Reward
+          </span>
+          <br></br>
+          <script src="https://unpkg.com/flowbite@1.4.2/dist/datepicker.js"></script>
+          <div inline-datepicker data-date="02/25/2022"></div>
+          <Input
+            id="reward-amt"
+            className="items-center justify-center rounded-xl w-1/4 ml-20 mt-4"
+            placeholder=""
+          />
+          <br></br>
           <br></br>
           <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
             Is there a Deadline?
@@ -192,7 +205,7 @@ function CreateBounty() {
           <script src="https://unpkg.com/flowbite@1.4.2/dist/datepicker.js"></script>
           <div inline-datepicker data-date="02/25/2022"></div>
           <Input
-            id="reward-amt"
+            id="deadline"
             className="items-center justify-center rounded-xl w-1/4 ml-20 mt-4"
             placeholder=""
           />
