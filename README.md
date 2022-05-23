@@ -4,15 +4,15 @@ Quick Start:
 
 In order to run the demo on your local system,
 
-> Clone or fork the CreateBounty branch.
+1. Clone or fork the CreateBounty branch.
 
-Install all dependencies
+2. Install all dependencies
 
 > npm install
 
-Rename .env.example to .env in the main folder.
+3. Rename .env.example to .env in the main folder.
 
-Run the application
+4. Run the application
 
 > npm start
 
