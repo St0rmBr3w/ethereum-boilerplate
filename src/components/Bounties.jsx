@@ -49,7 +49,8 @@ function Bounties() {
       // onLoad="fetchData()"
       className="relative bg-white flex items-center justify-center"
     >
-      {openModal && <BountyDetails closeModal={setOpenModal} />}
+      {openModal && <BountyDetails closeModal={setOpenModal} style="z-index: 1;"/>}
+
       <div className="relative bg-white flex-col items-center justify-center h-3/4 w-3/4 p-10 m-10 rounded-xl overflow-auto">
         {/*Heading - Bounties*/}
         <div className="mb-20 mt-10 text-center">
@@ -77,7 +78,7 @@ function Bounties() {
             <div className="relative justify-center">
               <div>
                 <div className="absolute rounded-xl w-72 h-28 left-1 inset-y-1 bg-purple-600 text-gray-50 p-8 z-0"></div>
-                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-10 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
+                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-9 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
                   {/*card logo*/}
                   <div className="h-2 w-20 mx-2">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/American_Red_Cross_logo.svg/1280px-American_Red_Cross_logo.svg.png"></img>
@@ -96,7 +97,7 @@ function Bounties() {
             <div className="relative justify-center">
               <div>
                 <div className="absolute rounded-xl w-72 h-28 left-1 inset-y-1 bg-purple-600 text-gray-50 p-8 z-0"></div>
-                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-10 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
+                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-9 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
                   {/*card logo*/}
                   <div className="h-2 w-20 mx-2">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/UNICEF_Logo.png"></img>
@@ -114,7 +115,7 @@ function Bounties() {
             <div className="relative justify-center">
               <div>
                 <div className="absolute rounded-xl w-72 h-28 left-1 inset-y-1 bg-purple-600 text-gray-50 p-8 z-0"></div>
-                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-10 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
+                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-9 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
                   {/*card logo*/}
                   <div className="h-2 w-20 mx-2">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/World_Health_Organization_Logo.svg/1280px-World_Health_Organization_Logo.svg.png"></img>
@@ -197,79 +198,13 @@ function Bounties() {
              }} >
               <BountyCard
                 bounty={e.attributes.Reward}
-                description={e.attributes.BountyDescription}
+                description={e.attributes.BountyTitle}
                 logoSrc={e.attributes.OrganizationName}
               />
               </button>
             );
           }).reverse()}
-          {/* <BountyCard
-            id="card1"
-            bounty="400"
-            description="hi"
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/f/f6/UCSD_logo.png"
-          />
-          <BountyCard
-            id="card2"
-            bounty="250"
-            description="Sign up to volunteer for a food distribution center."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/American_Red_Cross_logo.svg/1024px-American_Red_Cross_logo.svg.png"
-          />
-          <BountyCard
-            id="card3"
-            bounty="500"
-            description="Build a new profile on our job board"
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/5/57/UNICEF_Logo.png"
-          />
-          <BountyCard
-            id="card4"
-            bounty="100"
-            description="Attend a World Health Orgnization seminar."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/World_Health_Organization_Logo.svg/1280px-World_Health_Organization_Logo.svg.png"
-          />
-          <BountyCard
-            id="card5"
-            bounty="100"
-            description="Enroll in the FEEDING AMERICA reading list"
-            logoSrc="https://upload.wikimedia.org/wikipedia/en/thumb/a/aa/Feeding_America_logo.svg/1200px-Feeding_America_logo.svg.png"
-          />
-          <BountyCard
-            id="card6"
-            bounty="100"
-            description="Contribute 5 reviews on published journals."
-            logoSrc="https://logos-download.com/wp-content/uploads/2016/11/YWCA_logo_logotype.png"
-          />
-          <BountyCard
-            bounty="400"
-            description="Fill out the CAPES for 3 of your professors!"
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/f/f6/UCSD_logo.png"
-          />
-          <BountyCard
-            bounty="250"
-            description="Sign up to volunteer for a food distribution center."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/American_Red_Cross_logo.svg/1024px-American_Red_Cross_logo.svg.png"
-          />
-          <BountyCard
-            bounty="500"
-            description="Register and Vote on Public Health Policies."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/5/57/UNICEF_Logo.png"
-          />
-
-          <BountyCard
-            bounty="100"
-            description="Contribute 5 reviews on published journals."
-            logoSrc="https://logos-download.com/wp-content/uploads/2016/11/YWCA_logo_logotype.png"
-          />
-          <BountyCard
-            bounty="100"
-            description="Attend a World Health Orgnization seminar."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/World_Health_Organization_Logo.svg/1280px-World_Health_Organization_Logo.svg.png"
-          />
-          <BountyCard
-            bounty="100"
-            description="Enroll in the FEEDING AMERICA reading list"
-            logoSrc="https://upload.wikimedia.org/wikipedia/en/thumb/a/aa/Feeding_America_logo.svg/1200px-Feeding_America_logo.svg.png"
-          /> */}
+           
         </div>
 
         <div
@@ -282,3 +217,5 @@ function Bounties() {
 }
 
 export default Bounties;
+
+
