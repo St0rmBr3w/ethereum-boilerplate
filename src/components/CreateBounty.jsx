@@ -180,7 +180,7 @@ function CreateBounty() {
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <span className="text-gray-500 sm:text-sm mx-20"> $ </span>
               </div>
-              <input type="text" name="price" id="price" className="focus:ring-indigo-500 mx-20 block w-1/4 pl-7 sm:text-sm border-gray-600 rounded-md mb-20" placeholder="0.00"></input>
+              <input type="text" name="price" id="reward-amt" className="focus:ring-indigo-500 mx-20 block w-1/4 pl-7 sm:text-sm border-gray-600 rounded-md mb-20" placeholder="0.00"></input>
               <div className="absolute inset-y-0 left-1/4 flex items-center">
                 <label htmlFor="currency" className="sr-only">Currency</label>
                 <select id="currency" name="currency" className="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
@@ -191,22 +191,8 @@ function CreateBounty() {
               </div>
             </div>
           </div>
- CreateBounty
-          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
-            Bounty Reward
-          </span>
-          <br></br>
-          <script src="https://unpkg.com/flowbite@1.4.2/dist/datepicker.js"></script>
-          <div inline-datepicker data-date="02/25/2022"></div>
-          <Input
-            id="reward-amt"
-            className="items-center justify-center rounded-xl w-1/4 ml-20 mt-4"
-            placeholder=""
-          />
-          <br></br>
+         
 
- CreateBounty
-          <br></br>
           <span className="text-lg font-bold items-center justify-center text-black p-10 mx-10">
             Is there a Deadline?
           </span>
