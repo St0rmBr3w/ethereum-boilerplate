@@ -9,11 +9,13 @@ function BountyCard({ description, bounty, logoSrc }) {
       {/*card turquoise background & gray foreground*/}
       <div>
         <div className="absolute rounded-xl w-72 h-72 left-1 inset-y-1 bg-purple-600 text-gray-50 p-8 z-0"></div>
-        <div className="transform relative rounded-xl w-72 h-72 bg-black text-gray-50 p-8 space-y-7 z-10 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
+        <div className="transform relative rounded-xl w-72 h-72 bg-black text-gray-50 p-8 space-y-7 z-9 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
           {/*card logo*/}
-          <div className="h-2 w-20">
+          {/* <div className="h-2 w-20">
             <img src={logoSrc}></img>
-          </div>
+          </div> */}
+          {/*card name*/}
+          <div className="text-lg font-bold text-white">{logoSrc}</div>
 
           {/*card heading*/}
           <div className="text-lg font-bold text-white">{description}</div>

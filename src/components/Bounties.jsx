@@ -2,37 +2,55 @@
 import { useMoralis } from "react-moralis";
 import "./Bounties.css";
 import BountyCard from "./BountyCard";
+import { useEffect, useState } from "react";
+import BountyDetails from "./BountyDetails";
 
+
+//var results;
 function Bounties() {
+  const [openModal, setOpenModal] = useState(false);
+  const [tweetArr, setTweetArr] = useState();
   const { Moralis } = useMoralis();
-  const serverUrl = "https://10qsie3bmezz.usemoralis.com:2053/server";
-  const appId = "u4rYrjm7EDM2CifQKI0FYYVvrAA49AhYe1YNCoJm";
+  const serverUrl = "https://fqm6xvk1bz3n.usemoralis.com:2053/server";
+  const appId = "8jqUFih6aO47wx0MKH0I10CaHkFTKCIGtI5F0WSV";
   Moralis.start({ serverUrl, appId });
-
   async function fetchData() {
     const bountyData = Moralis.Object.extend("bountyData");
     const query = new Moralis.Query(bountyData);
-    query.limit(9);
+    query.limit(12);
     const results = await query.find();
-    document.getElementById("heading").innerText = results[0].get(
-      "BountyDescription",
-    );
-    document.getElementById("tag").innerText = results[0].get("BountyTags");
-    document.getElementById("reward").innerText = results[0].get("Reward");
-    // var outer = document.getElementById('outer');
-    // var children = outer.getElementsByTagName('div');
-    // var i, e;
-    // for (i = 0; i < children.length; ++i) {
-    //     e = children[i]
-    //     console.log(JSON.stringify(e.getAttribute("header")));
-    // }
-    // console.log(JSON.stringify(results[0].get("OrganizationName")));
-    // console.log(JSON.stringify(results));
-    //  document.getElementById("test").appendChild(BountyCard);
+    setTweetArr(results);
+    console.log(results[0].get("BountyDescription"));
+    console.log(results[1].get("BountyDescription"));
+    console.log(results[2].get("BountyDescription"));
   }
+
+  useEffect(() => {
+    async function getTweets() {
+      try {
+        const bountyData = Moralis.Object.extend("bountyData");
+        const query = new Moralis.Query(bountyData);
+        query.limit(12);
+        const results = await query.find();
+
+        setTweetArr(results);
+        console.log(results);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getTweets();
+  });
+
   return (
     //background//
-    <div className="relative bg-white flex items-center justify-center">
+    
+    <div
+      // onLoad="fetchData()"
+      className="relative bg-white flex items-center justify-center"
+    >
+      {openModal && <BountyDetails closeModal={setOpenModal} style="z-index: 1;"/>}
+
       <div className="relative bg-white flex-col items-center justify-center h-3/4 w-3/4 p-10 m-10 rounded-xl overflow-auto">
         {/*Heading - Bounties*/}
         <div className="mb-20 mt-10 text-center">
@@ -60,7 +78,7 @@ function Bounties() {
             <div className="relative justify-center">
               <div>
                 <div className="absolute rounded-xl w-72 h-28 left-1 inset-y-1 bg-purple-600 text-gray-50 p-8 z-0"></div>
-                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-10 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
+                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-9 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
                   {/*card logo*/}
                   <div className="h-2 w-20 mx-2">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/American_Red_Cross_logo.svg/1280px-American_Red_Cross_logo.svg.png"></img>
@@ -79,7 +97,7 @@ function Bounties() {
             <div className="relative justify-center">
               <div>
                 <div className="absolute rounded-xl w-72 h-28 left-1 inset-y-1 bg-purple-600 text-gray-50 p-8 z-0"></div>
-                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-10 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
+                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-9 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
                   {/*card logo*/}
                   <div className="h-2 w-20 mx-2">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/UNICEF_Logo.png"></img>
@@ -97,7 +115,7 @@ function Bounties() {
             <div className="relative justify-center">
               <div>
                 <div className="absolute rounded-xl w-72 h-28 left-1 inset-y-1 bg-purple-600 text-gray-50 p-8 z-0"></div>
-                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-10 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
+                <div className="transform flex relative rounded-xl w-72 h-28 bg-black text-gray-50 p-8 z-9 hover:-translate-y-2 hover:-translate-x-2 ease-in-out duration-300">
                   {/*card logo*/}
                   <div className="h-2 w-20 mx-2">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/World_Health_Organization_Logo.svg/1280px-World_Health_Organization_Logo.svg.png"></img>
@@ -154,70 +172,39 @@ function Bounties() {
 
         <br></br>
         <div
-          id="test"
+          id="testicles"
           className="relative grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-20 gap-x-12 justify-center items-center m-10"
         >
-          <BountyCard
-            bounty="400"
-            description="Fill out the CAPES for 3 of your professors!"
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/f/f6/UCSD_logo.png"
-          />
-          <BountyCard
-            bounty="250"
-            description="Sign up to volunteer for a food distribution center."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/American_Red_Cross_logo.svg/1024px-American_Red_Cross_logo.svg.png"
-          />
-          <BountyCard
-            bounty="500"
-            description="Build a new profile on our job board"
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/5/57/UNICEF_Logo.png"
-          />
-          <BountyCard
-            bounty="100"
-            description="Attend a World Health Orgnization seminar."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/World_Health_Organization_Logo.svg/1280px-World_Health_Organization_Logo.svg.png"
-          />
-          <BountyCard
-            bounty="100"
-            description="Enroll in the FEEDING AMERICA reading list"
-            logoSrc="https://upload.wikimedia.org/wikipedia/en/thumb/a/aa/Feeding_America_logo.svg/1200px-Feeding_America_logo.svg.png"
-          />
-          <BountyCard
-            bounty="100"
-            description="Contribute 5 reviews on published journals."
-            logoSrc="https://logos-download.com/wp-content/uploads/2016/11/YWCA_logo_logotype.png"
-          />
-          <BountyCard
-            bounty="400"
-            description="Fill out the CAPES for 3 of your professors!"
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/f/f6/UCSD_logo.png"
-          />
-          <BountyCard
-            bounty="250"
-            description="Sign up to volunteer for a food distribution center."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/American_Red_Cross_logo.svg/1024px-American_Red_Cross_logo.svg.png"
-          />
-          <BountyCard
-            bounty="500"
-            description="Register and Vote on Public Health Policies."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/5/57/UNICEF_Logo.png"
-          />
 
-          <BountyCard
-            bounty="100"
-            description="Contribute 5 reviews on published journals."
-            logoSrc="https://logos-download.com/wp-content/uploads/2016/11/YWCA_logo_logotype.png"
-          />
-          <BountyCard
-            bounty="100"
-            description="Attend a World Health Orgnization seminar."
-            logoSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/World_Health_Organization_Logo.svg/1280px-World_Health_Organization_Logo.svg.png"
-          />
-          <BountyCard
-            bounty="100"
-            description="Enroll in the FEEDING AMERICA reading list"
-            logoSrc="https://upload.wikimedia.org/wikipedia/en/thumb/a/aa/Feeding_America_logo.svg/1200px-Feeding_America_logo.svg.png"
-          />
+{/* <button
+            onClick={() => {
+              setOpenModal(true);
+              window.scrollTo(0, 0);
+            }}
+          >
+            <BountyCard
+              bounty="400"
+              description="Create a new logo for UCSD's Foundation"
+              logoSrc="https://upload.wikimedia.org/wikipedia/commons/f/f6/UCSD_logo.png"
+            />
+          </button> */}
+          {tweetArr?.map((e) => {
+
+            return (
+              <button
+             onClick={() => {
+               setOpenModal(true);
+               window.scrollTo(0, 0);
+             }} >
+              <BountyCard
+                bounty={e.attributes.Reward}
+                description={e.attributes.BountyTitle}
+                logoSrc={e.attributes.OrganizationName}
+              />
+              </button>
+            );
+          }).reverse()}
+           
         </div>
 
         <div
@@ -230,3 +217,5 @@ function Bounties() {
 }
 
 export default Bounties;
+
+
