@@ -1,12 +1,22 @@
 # `KarmaDAO`
 
-> Web App
+Quick Start:
 
-This app is built on the Moralis boilerplate
+In order to run the demo on your local system,
 
-> Running the demo on your local machine
+1. Clone or fork the CreateBounty branch.
 
-In order to run the demo on your local system, download the codebase and run npm start.
+2. Install all dependencies
+
+> npm install
+
+3. Rename .env.example to .env in the main folder.
+
+4. Run the application
+
+> npm start
+
+# `Pages `
 
 > Bounties
 
