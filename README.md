@@ -1,3 +1,9 @@
+# 'KarmaDAO'
+
+> Running the demo
+
+In order to run the demo on your local system, download the codebase and run npm start.
+
 # `ethereum-boilerplate`
 
 > React components and hooks for fast building dApps without running own backend
