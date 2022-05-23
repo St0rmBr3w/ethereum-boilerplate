@@ -24,15 +24,16 @@ function CreateBounty() {
     bountyInstance.set("Reward", rewardAmt);
     bountyInstance.save();
     document.getElementById("logger").innerHTML = "Task successfully created!";
+
+
   }
   return (
     //background//
     <div className="relative bg-slate flex items-center justify-center">
-      Test
-      <div className="relative bg-slate flex-col items-center justify-center h-3/4 w-3/4 p-10 m-10 rounded-xl overflow-auto">
+      <div className="relative bg-white flex-col items-center justify-center h-full w-full p-10 overflow-auto">
         {/*Heading - Bounties*/}
-        <div className="mb-20 mt-10 text-left">
-          <span className="text-6xl font-bold items-center justify-center text-white p-10 m-10">
+        <div className="mb-20 mt-10 text-center">
+          <span className="text-6xl font-bold items-center justify-center text-black p-10 m-10">
             CREATING BOUNTY
           </span>
         </div>
@@ -40,17 +41,17 @@ function CreateBounty() {
 
         {/*Input 2 - First Time Posting*/}
         <div className="mb-20 mt-10 text-left">
-          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
+          <span className="text-lg font-bold items-center justify-center text-black p-10 mx-10">
             Is this your first time posting a bounty?
           </span>
           <br></br>
           <div className="flex ml-20 mt-4">
-            <div className="bg-primary-turquoise hover:bg-gray-200 rounded-xl w-20 h-10 flex justify-center text-center mr-4">
+            <div className="bg-mustardYellow hover:bg-gray-200 rounded-xl w-20 h-10 flex justify-center text-center mr-4">
               <button className="font-semibold text-base">
                 <span>Yes</span>
               </button>
             </div>
-            <div className="bg-white hover:bg-purple-800 hover:text-gray-200 rounded-xl w-20 h-10 flex justify-center text-center text-black">
+            <div className="bg-white hover:bg-purple-800 bg-gray-200 hover:text-gray-200 rounded-xl w-20 h-10 flex justify-center text-center text-black">
               <button className="text-base text-md font-semibold">
                 <span>No</span>
               </button>
@@ -60,7 +61,7 @@ function CreateBounty() {
 
         {/*Input 1 - Org Name*/}
         <div className="mb-20 mt-10 text-left inline-block">
-          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
+          <span className="text-lg font-bold items-center justify-center text-black p-10 mx-10">
             Organization Name
           </span>
           <br></br>
@@ -73,7 +74,7 @@ function CreateBounty() {
 
         {/*Input 3 - Organization Website*/}
         <div className="mb-20 mt-10 text-left inline-block">
-          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
+          <span className="text-lg font-bold items-center justify-center text-black p-10 mx-10">
             Organization Website
           </span>
           <br></br>
@@ -86,7 +87,7 @@ function CreateBounty() {
 
         {/*Input 4 - Bounty Title*/}
         <div className="mb-20 mt-10 text-left">
-          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
+          <span className="text-lg font-bold items-center justify-center text-black p-10 mx-10">
             Bounty Title
           </span>
           <br></br>
@@ -99,7 +100,7 @@ function CreateBounty() {
 
         {/*Input 5 - Bounty Description*/}
         <div className="mb-20 mt-10 text-left">
-          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
+          <span className="text-lg font-bold items-center justify-center text-black p-10 mx-10">
             Bounty Description
           </span>
           <br></br>
@@ -112,43 +113,43 @@ function CreateBounty() {
 
         {/*Input 6 - Bounty Tags / Categories*/}
         <div className="mb-20 mt-10 text-left">
-          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
+          <span className="text-lg font-bold items-center justify-center text-black p-10 mx-10">
             What category does this bounty belong in? (maximum 3 categories)
           </span>
           <br></br>
           <form>
-            <span className="border-white rounded-xl">
+            <span className="bg-grey">
               <Input
                 type="checkbox"
                 id="dev-tag"
-                className="items-center justify-center rounded-xl w-10 ml-20 text-white"
+                className="items-center justify-center rounded-xl w-10 ml-20 text-black"
                 value="dev"
               />
-              <label htmlFor="dev-tag" className="text-white ml-4">
+              <label htmlFor="dev-tag" className="text-black ml-4">
                 Development
               </label>
             </span>
 
-            <span className="border-white rounded-xl">
+            <span className="">
               <Input
                 type="checkbox"
                 id="des-tag"
-                className="items-center justify-center rounded-xl w-10 ml-20 text-white"
+                className="items-center justify-center rounded-xl w-10 ml-20 text-black"
                 value="design"
               />
-              <label htmlFor="des-tag" className="text-white ml-4">
+              <label htmlFor="des-tag" className="text-black ml-4">
                 Design
               </label>
             </span>
 
-            <span className="border-white rounded-xl">
+            <span className="">
               <Input
                 type="checkbox"
                 id="mark-tag"
-                className="items-center justify-center rounded-xl w-10 ml-20 text-white"
+                className="items-center justify-center rounded-xl w-10 ml-20 text-black"
                 value="marketing"
               />
-              <label htmlFor="mark-tag" className="text-white ml-4">
+              <label htmlFor="mark-tag" className="text-black ml-4">
                 Marketing
               </label>
             </span>
@@ -160,7 +161,7 @@ function CreateBounty() {
                 className="items-center justify-center rounded-xl w-10 ml-20"
                 value="other"
               />
-              <label htmlFor="other-tag" className="text-white ml-4">
+              <label htmlFor="other-tag" className="text-black ml-4">
                 Other
               </label>
             </span>
@@ -169,22 +170,28 @@ function CreateBounty() {
 
         {/*Input 7 - Is there a reward?*/}
         <div className="mb-20 mt-10 text-left">
-          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
+          <span className="text-lg font-bold items-center justify-center text-black p-10 mx-10">
             Is there a reward for this?
           </span>
           <br></br>
-          <div className="flex ml-20 mt-4">
-            <div className="bg-primary-turquoise hover:bg-gray-200 rounded-xl w-20 h-10 flex justify-center text-center mr-4">
-              <button className="font-semibold text-base">
-                <span>Yes</span>
-              </button>
-            </div>
-            <div className="bg-white hover:bg-purple-800 hover:text-gray-200 rounded-xl w-20 h-10 flex justify-center text-center text-black mb-10">
-              <button className="text-base text-md font-semibold">
-                <span>No</span>
-              </button>
+          
+          <div>
+            <div className="mt-1 relative rounded-md">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <span className="text-gray-500 sm:text-sm mx-20"> $ </span>
+              </div>
+              <input type="text" name="price" id="price" className="focus:ring-indigo-500 mx-20 block w-1/4 pl-7 sm:text-sm border-gray-600 rounded-md mb-20" placeholder="0.00"></input>
+              <div className="absolute inset-y-0 left-1/4 flex items-center">
+                <label htmlFor="currency" className="sr-only">Currency</label>
+                <select id="currency" name="currency" className="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                  <option>USD</option>
+                  <option>CAD</option>
+                  <option>EUR</option>
+                </select>
+              </div>
             </div>
           </div>
+ CreateBounty
           <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
             Bounty Reward
           </span>
@@ -197,12 +204,13 @@ function CreateBounty() {
             placeholder=""
           />
           <br></br>
+
+ CreateBounty
           <br></br>
-          <span className="text-lg font-bold items-center justify-center text-white p-10 mx-10">
+          <span className="text-lg font-bold items-center justify-center text-black p-10 mx-10">
             Is there a Deadline?
           </span>
           <br></br>
-          <script src="https://unpkg.com/flowbite@1.4.2/dist/datepicker.js"></script>
           <div inline-datepicker data-date="02/25/2022"></div>
           <Input
             id="deadline"

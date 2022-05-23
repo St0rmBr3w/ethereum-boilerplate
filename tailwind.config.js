@@ -10,6 +10,7 @@ module.exports = {
         accept: "#3D56B1",
         chat: "#3DB149",
         slate: "#131313",
+        mustardYellow: "#f2c14b",
       },
       fontSize: {
         tiny: "6px",
@@ -19,5 +20,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [require('@tailwindcss/forms')],
 };
